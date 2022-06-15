@@ -24,10 +24,11 @@ namespace UnexpectedAppearingOrder
             Console.WriteLine("OnDisappearing: {0}", this);
         }
 
-        void Button_Clicked(System.Object sender, System.EventArgs e)
+        async void Button_Clicked(System.Object sender, System.EventArgs e)
         {
             Console.WriteLine(" --- Navigating ---");
-            Navigation.PushAsync(new MyPage2());
+            await Task.Delay(1000); // for emulator (to position cursor over back button)
+            await Navigation.PushAsync(new MyPage2());
         }
     }
 }
